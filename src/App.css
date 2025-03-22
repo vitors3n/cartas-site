@@ -37,3 +37,9 @@
   border: 2px solid black;
   background-color: rgb(168, 168, 168);
 }
+
+.new_card_text {
+  width: 98%;
+  height: 300px;
+  resize: none;
+}
