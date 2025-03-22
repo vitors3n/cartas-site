@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './App.css'
 
 interface Card {
   id: number;
@@ -21,11 +22,13 @@ function App() {
   const nextCard = () => {
     if(activeCard+1 === cards.length) return;
     setActiveCard(activeCard+1);
+    setIsFrontVisible(true);
   };
 
   const prevCard = () => {
     if(activeCard === 0) return
     setActiveCard(activeCard-1);
+    setIsFrontVisible(true);
   };
 
   useEffect(() => {
@@ -60,16 +63,16 @@ function App() {
 
   return (
       <div>
-        <h2>Cartas</h2>
+        <h2>Review</h2>
           <div key={cards[activeCard].id} onClick={toggleCard} style={{ cursor: "pointer"}}>
             {isFrontVisible ? (
-              <div>{cards[activeCard].front}</div>
+              <div className='card card_front'>{cards[activeCard].front}</div>
             ) : (
-              <div>{cards[activeCard].back}</div>
+              <div className='card card_back'>{cards[activeCard].back}</div>
             )}
           </div>
-          <button onClick={prevCard}>Anterior</button>
-          <button onClick={nextCard}>Próxima</button>
+          <button className='card_button' onClick={prevCard}>Anterior</button>
+          <button className='card_button' onClick={nextCard}>Próxima</button>
       </div>
   )
 }
