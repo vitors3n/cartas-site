@@ -62,9 +62,12 @@ function App() {
   if (error) return <p>Error: {error}</p>
 
   return (
+    <div className='container'>
       <div>
         <h2>Review</h2>
-          <div key={cards[activeCard].id} onClick={toggleCard} style={{ cursor: "pointer"}}>
+          <div key={cards[activeCard].id} 
+            onClick={toggleCard}
+          >
             {isFrontVisible ? (
               <div className='card card_front'>{cards[activeCard].front}</div>
             ) : (
@@ -74,6 +77,13 @@ function App() {
           <button className='card_button' onClick={prevCard}>Anterior</button>
           <button className='card_button' onClick={nextCard}>Próxima</button>
       </div>
+      <div>
+        <h2>Nova Carta</h2>
+        <div className='formNewCard'>
+          <form action=""></form>
+        </div>
+      </div>
+    </div>
   )
 }
 
