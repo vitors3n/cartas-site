@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Card } from './interfaces/card';
 import './App.css'
-
-interface Card {
-  id: number;
-  front: string;
-  back: string;
-  reviews: number;
-}
 
 function App() {
   const [cards, setCards] = useState<Card[]>([]);

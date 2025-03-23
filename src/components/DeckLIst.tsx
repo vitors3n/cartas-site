@@ -15,13 +15,9 @@ function DeckList() {
         }
         return response.json();
       })
-      .then((data) => {
+      .then((response_decks) => {
 
-        setDecks(data.map((deck: any) => ( {
-          id: deck.id,
-          name: deck.name,
-          cards: deck.cards,
-        })));
+        setDecks(response_decks);
 
         console.log(decks)
         setLoading(false);
