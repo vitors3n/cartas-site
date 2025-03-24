@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Deck } from '../interfaces/deck';
+import ReviewCards from './ReviewCard';
+import '../styles/ListDeck.css';
 
-function DeckList() {
+function ListDecks() {
   const [decks, setDecks] = useState<Deck[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedDeck, setSelectedDeck] = useState<Deck | null>(null);
+
+  const updateSelectDeck = (deck : Deck) => {
+    setSelectedDeck(deck);
+  };
 
   useEffect(() => {
 
@@ -16,10 +23,7 @@ function DeckList() {
         return response.json();
       })
       .then((response_decks) => {
-
         setDecks(response_decks);
-
-        console.log(decks)
         setLoading(false);
       })
       .catch((err) =>{
@@ -34,17 +38,20 @@ function DeckList() {
   return (
     <div>
         {decks.map( (deck)=> (
-            <>
-                <div key={deck.id}>{deck.name}</div>
-                <ul>
-                {deck.cards.map(card => (
-                    <li key={card.id}>{card.front}</li>
-                ))}    
-                </ul>
-            </>
+          <button className='deck_button' key={deck.id} onClick={() => updateSelectDeck(deck)}>
+            {deck.name} 
+            <span className='deck_length'>{deck.cards.length}</span>
+          </button>
         ))}
+
+        {selectedDeck ? (
+          <ReviewCards cards={selectedDeck.cards} />
+        ):(
+          <></>
+        )}
+
     </div>
   )
 }
 
-export default DeckList
+export default ListDecks

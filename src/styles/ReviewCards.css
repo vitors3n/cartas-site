@@ -1,0 +1,31 @@
+.card {
+    height: 400px;
+    width: 800px;
+    color: #fff;
+    margin: 2px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .card_front {
+    background-color: rgb(44, 44, 44);
+  }
+  
+  .card_back {
+    background-color: rgb(41, 41, 41);
+  }
+
+  .card_button {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 3px;
+  }
+
+  .card_button:hover {
+    background-color: #272727;
+  }

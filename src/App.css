@@ -1,26 +1,12 @@
+html {
+  background-color: rgb(61, 61, 61);
+  color: #fff;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
-}
-
-.card {
-  height: 700px;
-  width: 600px;
-  color: #fff;
-  margin: 2px;
-  padding: 5px;
-  border-radius: 6px;
-  border: 2px solid black;
-  cursor: pointer;
-}
-
-.card_front {
-  background-color: rgb(104, 10, 104);
-}
-
-.card_back {
-  background-color: rgb(43, 14, 43);
 }
 
 .card_button {
