@@ -15,7 +15,7 @@ function ListDecks() {
 
   useEffect(() => {
 
-    fetch("http://localhost:8080/api/v1/deck")
+    fetch("http://localhost:8080/api/v1/decks")
       .then((response) => {
         if(!response.ok){
           throw new Error("Falha ao pegar cartas");
@@ -38,7 +38,11 @@ function ListDecks() {
   return (
     <div>
         {decks.map( (deck)=> (
-          <button className='deck_button' key={deck.id} onClick={() => updateSelectDeck(deck)}>
+          <button 
+            className={`deck_button ${selectedDeck?.id === deck.id ? "active":""}`} 
+            key={deck.id} 
+            onClick={() => updateSelectDeck(deck)}
+          >
             {deck.name} 
             <span className='deck_length'>{deck.cards.length}</span>
           </button>
