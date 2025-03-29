@@ -30,7 +30,7 @@ function App() {
   const addCard = async () => {
     if (front && back) {
       try {
-        const response = await fetch("http://localhost:8080/api/v1/card", {
+        const response = await fetch("http://localhost:8080/api/v1/cards", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ front, back, reviews:0 }),
@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch("http://localhost:8080/api/v1/card")
+    fetch("http://localhost:8080/api/v1/cards")
       .then((response) => {
         if(!response.ok){
           throw new Error("Falha ao pegar cartas");
@@ -80,9 +80,7 @@ function App() {
     <div className='container'>
       <div>
         <h2>Review</h2>
-          <div key={cards[activeCard].id} 
-            onClick={toggleCard}
-          >
+          <div key={cards[activeCard].id} onClick={toggleCard}>
             {isFrontVisible ? (
               <div className='card card_front'>{cards[activeCard].front}</div>
             ) : (
